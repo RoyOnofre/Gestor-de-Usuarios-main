@@ -1,0 +1,5 @@
+{
+  "name": "gestion de Usuario",
+  "description": "A professional user management system with CRUD operations, secure login, and a sleek dashboard interface.",
+  "requestFramePermissions": []
+}

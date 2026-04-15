@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head}"></head>
+<body>
+    <nav th:replace="~{fragments/layout :: navbar}"></nav>
+
+    <div class="container py-5 animate-fade">
+        <div class="d-flex justify-content-between align-items-end mb-5">
+            <div>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-2">
+                        <li class="breadcrumb-item"><a href="/" class="text-decoration-none text-muted">Dashboard</a></li>
+                        <li class="breadcrumb-item active">Categorías</li>
+                    </ol>
+                </nav>
+                <h2 class="display-5 fw-bold mb-0">Gestión de <span class="text-primary">Categorías</span></h2>
+            </div>
+            <a th:href="@{/categories/new}" class="btn btn-primary d-flex align-items-center mb-1">
+                <i class="bi bi-plus-lg me-2"></i> Crear Nueva
+            </a>
+        </div>
+
+        <div class="row g-4">
+            <div th:each="cat : ${categories}" class="col-xl-3 col-lg-4 col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="position-relative">
+                        <img th:if="${cat.image != null}" th:src="${cat.image}" class="card-img-top" alt="Category" style="height: 180px; object-fit: cover;">
+                        <div th:unless="${cat.image != null}" class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 180px;">
+                            <i class="bi bi-folder-fill text-muted opacity-25" style="font-size: 4rem;"></i>
+                        </div>
+                        <div class="position-absolute bottom-0 start-0 p-3 bg-dark bg-opacity-75 text-white w-100 backdrop-blur" style="backdrop-filter: blur(4px);">
+                             <span class="small fw-600 opacity-75">TECH COMPONENT</span>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <h4 class="card-title fw-bold mb-3" th:text="${cat.name}">Category Name</h4>
+                        <div class="d-flex gap-2 mt-4 pt-2 border-top">
+                            <a th:href="@{/categories/edit/{id}(id=${cat.id})}" class="btn btn-light btn-sm flex-fill border">
+                                <i class="bi bi-pencil-square me-1"></i> Editar
+                            </a>
+                            <a th:href="@{/categories/delete/{id}(id=${cat.id})}" class="btn btn-outline-danger btn-sm px-3" 
+                               onclick="return confirm('¿Seguro que deseas eliminar esta categoría?')">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Empty State -->
+            <div th:if="${#lists.isEmpty(categories)}" class="col-12 py-5 text-center">
+                <div class="py-5 bg-white rounded-5 shadow-sm border border-2 border-dashed">
+                    <i class="bi bi-inboxes display-1 text-muted opacity-25 mb-4 d-block"></i>
+                    <h3 class="fw-bold text-muted">No hay categorías configuradas</h3>
+                    <p class="text-muted">Empieza creando una categoría para organizar tus productos.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:replace="~{fragments/layout :: scripts}"></div>
+</body>
+</html>

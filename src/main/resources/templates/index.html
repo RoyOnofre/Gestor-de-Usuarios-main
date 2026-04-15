@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head}"></head>
+<body>
+    <nav th:replace="~{fragments/layout :: navbar}"></nav>
+
+    <div class="container py-5 animate-fade">
+        <!-- Hero Section -->
+        <div class="row align-items-center mb-5 pb-5">
+            <div class="col-lg-6">
+                <div class="badge bg-secondary mb-3 py-2 px-3 text-white">TECH & INNOVATION</div>
+                <h1 class="display-2 fw-bold text-dark mb-4" style="line-height: 0.9;">Centralized <span class="text-primary">System</span></h1>
+                <p class="lead text-muted mb-5 pe-lg-5">
+                    Gestiona tu inventario con precisión quirúrgica. Acceso rápido a categorías premium y productos de última generación con una interfaz de grado empresarial.
+                </p>
+                <div class="d-flex gap-3">
+                    <a th:href="@{/products}" class="btn btn-primary btn-lg px-5 py-3">
+                        <i class="bi bi-grid-3x3-gap-fill me-2"></i> Ver Inventario
+                    </a>
+                    <a th:href="@{/categories}" class="btn btn-outline-dark btn-lg px-5 py-3 border-2">
+                        Explorar Categorías
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 mt-5 mt-lg-0">
+                <div class="position-relative">
+                    <div class="position-absolute translate-middle top-50 start-50 bg-secondary rounded-circle opacity-10" style="width: 500px; height: 500px; filter: blur(80px);"></div>
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" class="img-fluid rounded-4 shadow-lg border border-white border-4" alt="Tech Dashboard">
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Stats / Features -->
+        <div class="row g-4 mt-5">
+            <div class="col-md-4">
+                <div class="card p-4 h-100 border-0">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-primary bg-opacity-10 p-3 rounded-4 me-3 text-primary">
+                            <i class="bi bi-shield-lock-fill fs-3"></i>
+                        </div>
+                        <h4 class="mb-0 fw-bold">Seguridad Core</h4>
+                    </div>
+                    <p class="text-muted">Protección de datos mediante persistencia SQLite de alta confiabilidad.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-4 h-100 border-0">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-secondary bg-opacity-10 p-3 rounded-4 me-3 text-secondary">
+                            <i class="bi bi-speedometer2 fs-3"></i>
+                        </div>
+                        <h4 class="mb-0 fw-bold">Rendimiento Pro</h4>
+                    </div>
+                    <p class="text-muted">Motor Spring Boot 2.7 optimizado para respuestas instantáneas.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-4 h-100 border-0">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-info bg-opacity-10 p-3 rounded-4 me-3 text-info">
+                            <i class="bi bi-layers-half fs-3"></i>
+                        </div>
+                        <h4 class="mb-0 fw-bold">Diseño Adaptive</h4>
+                    </div>
+                    <p class="text-muted">Interfaz fluida que se adapta a cualquier dispositivo moderno.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:replace="~{fragments/layout :: scripts}"></div>
+</body>
+</html>

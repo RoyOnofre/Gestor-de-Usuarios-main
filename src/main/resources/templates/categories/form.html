@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head}"></head>
+<body>
+    <nav th:replace="~{fragments/layout :: navbar}"></nav>
+
+    <div class="container py-5 animate-fade">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card p-0 border-0 shadow-lg overflow-hidden">
+                    <div class="bg-secondary p-4 text-white d-flex align-items-center justify-content-between">
+                        <div>
+                            <h3 class="fw-bold mb-0" th:text="${category.id == null ? 'Nueva Categoría' : 'Editar Categoría'}">Header</h3>
+                            <p class="mb-0 opacity-75 small text-uppercase fw-600">Enterprise Structure</p>
+                        </div>
+                        <i class="bi bi-tag-fill display-5 opacity-50"></i>
+                    </div>
+
+                    <div class="card-body p-5">
+                        <form th:action="@{/categories/save}" th:object="${category}" method="post">
+                            <input type="hidden" th:field="*{id}">
+                            
+                            <div class="mb-4">
+                                <label for="name" class="form-label fw-bold small text-muted">NOMBRE DE LA CATEGORÍA</label>
+                                <input type="text" th:field="*{name}" class="form-control form-control-lg bg-light border-0" id="name" placeholder="Ej. Tarjetas Gráficas High-End" required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="image" class="form-label fw-bold small text-muted">URL DE LA MINIATURA</label>
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-text bg-light border-0"><i class="bi bi-image"></i></span>
+                                    <input type="url" th:field="*{image}" class="form-control bg-light border-0" id="image" placeholder="https://example.com/category-thumb.jpg">
+                                </div>
+                                <div class="form-text ps-1">Usa una imagen representativa para el catálogo.</div>
+                            </div>
+
+                            <div class="d-flex gap-3 mt-5 pt-3 border-top">
+                                <button type="submit" class="btn btn-primary btn-lg flex-fill py-3 fs-5" style="background: linear-gradient(135deg, var(--secondary), #0891b2);">
+                                    <i class="bi bi-save2 me-2"></i> Guardar Categoría
+                                </button>
+                                <a th:href="@{/categories}" class="btn btn-light btn-lg border px-4 py-3 text-muted">Cancelar</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:replace="~{fragments/layout :: scripts}"></div>
+</body>
+</html>

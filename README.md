@@ -1,12 +1,18 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+PROTOTIPO INICIAL DE TIENDA TechStore Pro
+Universitario (a):
 
-# Run and deploy your AI Studio app
+1.-Coraite Yanaje Luz Clara
 
-This contains everything you need to run your app locally.
 
-View your app in AI Studio: https://ai.studio/apps/cc717cf0-bc86-4046-8088-bf94d03e1cb1
+2.-Muraña Pizarro Nayda Thatiana
+
+
+3.-Onofre Alanoca Roy
+
+
+Carrera: Ing. Sistemas. Materia: SIS324 – INGENIERIA DE SOFWARE
+
+Grupo: 17
 
 ## Run Locally
 
